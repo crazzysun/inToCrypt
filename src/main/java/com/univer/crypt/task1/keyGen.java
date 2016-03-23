@@ -1,54 +1,24 @@
-package com.univer.crypt;
+package com.univer.crypt.task1;
 
-import java.io.*;
+import java.io.BufferedOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Task1 {
+public class keyGen {
     int keyLen;
-    Scanner in;
-    PrintWriter out;
-    Scanner file;
     int[] key;
-
-    //Transposition cipher
+    Scanner in;
 
     void run() throws FileNotFoundException {
         in = new Scanner(System.in);
-        out = new PrintWriter(new BufferedOutputStream(new FileOutputStream("cipher_text.txt")));
-
 
         System.out.println("Input key lenght:");
         keyLen = in.nextInt();
         key = new int[keyLen];
         genKey();
-
-        System.out.println("input path:");
-        //String path = in.nextLine();
-        String path = "input.txt";
-        file = new Scanner(new FileInputStream(path));
-
-        while (file.hasNext()) {
-            String s = file.nextLine().replaceAll(" ", "");
-            while (s.length() % keyLen != 0) {
-                s += "#";
-            }
-
-            StringBuilder res = new StringBuilder();
-
-            for (int i = 0; i < s.length(); i += keyLen) {
-                for (int j = 0; j < keyLen; j++) {
-                    res.append(s.charAt(i + key[j]));
-                }
-            }
-
-
-            out.print(res);
-            System.out.println(res);
-        }
-
-        out.flush();
-
     }
 
     void genKey() throws FileNotFoundException {
@@ -85,6 +55,6 @@ public class Task1 {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        new Task1().run();
+        new keyGen().run();
     }
 }
