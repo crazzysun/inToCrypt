@@ -34,18 +34,21 @@ public class GetCipherText {
             s += Character.toLowerCase(s.charAt(0));
         }
 
+        crypt(s, key);
+
+        out.close();
+    }
+
+    void crypt(String s, int[] key) {
         StringBuilder res = new StringBuilder();
 
-        for (int i = 0; i < s.length(); i += keyLen) {
-            for (int j = 0; j < keyLen; j++) {
+        for (int i = 0; i < s.length(); i += key.length) {
+            for (int j = 0; j < key.length; j++) {
                 res.append(s.charAt(i + key[j]));
             }
         }
-
         out.print(res);
         System.out.println(res);
-
-
         out.flush();
     }
 
