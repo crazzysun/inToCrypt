@@ -79,9 +79,16 @@ public class AllPermutation {
 
         StringBuilder res = new StringBuilder();
 
+        char[] tmp = new char[key.length];
         for (int i = 0; i < s.length(); i += key.length) {
             for (int j = 0; j < key.length; j++) {
-                res.append(s.charAt(i + key[j]));
+                tmp[key[j]] = s.charAt(i + j);
+
+                // res.append(s.charAt(i + key[j]));
+            }
+
+            for (int j = 0; j < key.length; j++) {
+                res.append(tmp[j]);
             }
         }
         out.print(res);

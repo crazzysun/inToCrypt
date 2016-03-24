@@ -17,8 +17,6 @@ public class GetCipherText {
         key = getKey();
 
         System.out.println("Input path:");
-        //String path = console.nextLine();
-
         System.out.println("input.txt");
         String path = "input.txt";
 

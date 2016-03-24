@@ -7,7 +7,7 @@ public class Solution {
         new keyGen().run();
         new GetCipherText().run();
         new KasiskiTest().run();
-        new AllPermutation().run();
+        //new AllPermutation().run();
     }
 
     public static void main(String[] args) throws FileNotFoundException {
